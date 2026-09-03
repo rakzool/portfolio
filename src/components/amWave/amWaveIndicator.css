@@ -1,0 +1,61 @@
+.waveform-indicator-container {
+  position: absolute;
+  bottom: 2rem;           /* Down from 3rem */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  max-width: 260px;       /* Down from 500px */
+  height: 40px;           /* Down from 80px */
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.am-waveform-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.am-waveform-path {
+  fill: none;
+  stroke: #FBFBFB;
+  stroke-width: 2;        /* Down from 3 for a sleeker look at smaller scale */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.8;
+  transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              stroke 0.3s ease, 
+              opacity 0.3s ease;
+}
+
+.waveform-indicator-container:hover .am-waveform-path {
+  opacity: 1;
+}
+
+.waveform-hit-areas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+}
+
+.waveform-step-button {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.waveform-step-button:hover,
+.waveform-step-button.active,
+.waveform-step-button:focus {
+  background: transparent;
+}
