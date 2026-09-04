@@ -1,9 +1,16 @@
-import  {useEffect,useRef,useState} from "react";
+import  {useEffect,useRef,useState, type MouseEvent} from "react";
 
 const useScroll =() =>{
 
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>): void => {
+      if (!wrapperRef.current) return;
+      wrapperRef.current.style.setProperty("--cursor-x", `${e.clientX}px`);
+      wrapperRef.current.style.setProperty("--cursor-y", `${e.clientY}px`);
+    };
 
   useEffect(() => {
     const currentElement = containerRef.current;
@@ -31,8 +38,8 @@ const useScroll =() =>{
 
       e.preventDefault();
       currentElement.scrollBy({
-        left: e.deltaY * 1.5,
-        behavior: "smooth",
+        left: e.deltaY * 1.0,
+        behavior: "auto",
       });
     };
 
@@ -44,24 +51,33 @@ const useScroll =() =>{
   }, []);
 
   useEffect(() => {
+    if (wrapperRef.current) {
+      wrapperRef.current.style.setProperty(
+        "--cursor-x",
+        `${window.innerWidth / 2}px`,
+      );
+      wrapperRef.current.style.setProperty(
+        "--cursor-y",
+        `${window.innerHeight / 2}px`,
+      );
+    }
+  }, []);
+
+  useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setActiveIndex(index);
-          }
-        });
-      },
-      { root: el, threshold: 0.6 },
-    );
-    const sections = el.querySelectorAll(".portfolio-section");
-    sections.forEach((sec) => observer.observe(sec));
+    const handleScroll = () => {
+      const scrollLeft = el.scrollLeft;
+      const pageWidth = window.innerWidth;
+      
+      // Determine current page index based on which section is most centered in the viewport
+      const newIndex = Math.round(scrollLeft / pageWidth);
+      setActiveIndex(newIndex);
+    };
 
-    return () => observer.disconnect();
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -86,7 +102,9 @@ const useScroll =() =>{
 
   return {
     containerRef,
-    activeIndex
+    activeIndex,
+    wrapperRef,
+    handleMouseMove
   }
 
 }
