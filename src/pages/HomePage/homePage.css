@@ -57,6 +57,14 @@
   transition: 0.5s ease-in;
 }
 
+.mobile-message {
+  display: none;
+}
+
+.mobile-wave-bg{
+  display: none;
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .hero-page {
     padding: 5rem 2rem;
@@ -67,7 +75,7 @@
   .hero-content {
     padding: 0rem 1rem;
     position: absolute;
-    top: 20%;
+    top: 25%;
   }
 
   .hero-content h1 {
@@ -85,5 +93,31 @@
 
   .icons-stack {
     font-size: 1.2rem;
+  }
+
+  .mobile-message {
+    display: flex;
+    text-align: start;
+    align-content: center;
+    position: absolute;
+    z-index: 10;
+    margin-right: 2rem;
+    border-radius: 16px;
+    background: rgba(20, 20, 25, 0.45);
+    bottom: 15%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+
+  .clover-icon{
+    margin-left: 0.5rem;
+    position: absolute;
+    bottom : 5%;  
+  }
+
+  .mobile-wave-bg{
+    display: block;
   }
 }
