@@ -57,6 +57,11 @@ const AboutPage = () => {
       className="about-section-container"
       id="about"
       aria-labelledby="about-title"
+      data-vertical-scroll
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowUp" || event.key === "ArrowDown") event.stopPropagation();
+      }}
     >
       <span
         className={`literature-quote quote-top-left ${showActive ? "active" : ""}`}

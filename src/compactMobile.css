@@ -1,0 +1,69 @@
+/* Short portrait phones, including the 375 × 667 iPhone SE.
+   Imported after page styles so shared clearances apply consistently. */
+@media (max-width: 600px) and (max-height: 700px) and (orientation: portrait) {
+  :root {
+    --compact-top: calc(4.5rem + env(safe-area-inset-top));
+    --compact-bottom: calc(3.5rem + env(safe-area-inset-bottom));
+  }
+
+  .portfolio-navbar-container { top: calc(.65rem + env(safe-area-inset-top)); }
+  .portfolio-navbar .nav-item { min-height: 40px; }
+  .waveform-indicator-container { bottom: max(.5rem, env(safe-area-inset-bottom)); height: 32px; }
+
+  .hero-page {
+    box-sizing: border-box;
+    height: 100dvh;
+    padding: var(--compact-top) 1.5rem var(--compact-bottom);
+  }
+  .hero-content {
+    position: relative;
+    top: auto;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin-top: clamp(1rem, 7dvh, 3rem);
+    gap: .65rem;
+    z-index: 3;
+  }
+  .hero-content h1 { font-size: clamp(2rem, 9vw, 2.5rem); line-height: 1.15; }
+  .hero-content h2 { font-size: .95rem; line-height: 1.5; }
+  .hero-content h3 { font-size: 1.4rem; line-height: 1.3; }
+  .hero-content .icons-stack { margin-top: .5rem; }
+  .mobile-message {
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: calc(var(--compact-bottom) + .75rem);
+    margin: 0;
+    font-size: .75rem;
+    line-height: 1.5;
+  }
+  .mobile-message .clover-icon { position: static; display: inline-block; vertical-align: middle; }
+
+  .about-section-container {
+    height: 100dvh;
+    min-height: 0;
+    padding: var(--compact-top) 1rem var(--compact-bottom);
+    align-items: flex-start;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+  .about-content-wrapper { gap: .9rem; padding-top: .75rem; padding-bottom: 1rem; }
+  .polaroid-frame { width: clamp(120px, 34vw, 145px); padding: 6px 6px 10px; }
+  .polaroid-image-container { height: auto; aspect-ratio: 1; }
+  .polaroid-caption { margin-top: 6px; gap: 2px; }
+  .about-text-content { padding: 0; gap: .5rem; }
+  .about-highlights { margin: .2rem 0; }
+  .about-cta { box-sizing: border-box; min-height: 44px; display: inline-flex; align-items: center; }
+
+  .career-section,
+  .skills-page,
+  .projects-page {
+    padding-top: var(--compact-top);
+    padding-bottom: var(--compact-bottom);
+  }
+  .connect-page { padding-top: 1rem; }
+  .skills-toolbar { margin-block: .5rem; }
+  .skills-header h2,
+  .projects-heading h2,
+  .connect-header h2 { font-size: 1.65rem; }
+}
