@@ -5,6 +5,7 @@
   transform: translateX(-50%);
   z-index: 100;
   pointer-events: none; /* Allows mouse events to pass through wrapper space outside buttons */
+  max-width: calc(100vw - 1rem);
 }
 
 .portfolio-navbar {
@@ -52,4 +53,10 @@ pointer-events: auto;
 
 .nav-item.active {
   color: #FB644B;
+}
+
+@media (max-width: 600px) {
+  .portfolio-navbar-container { width: calc(100vw - 2rem); }
+  .portfolio-navbar { width: 100%; min-width: 0; box-sizing: border-box; gap: 0; padding: .25rem .3rem; overflow: hidden; }
+  .nav-item { min-width: 0; flex: 1 1 0; padding: .45rem .2rem; font-size: .68rem; }
 }

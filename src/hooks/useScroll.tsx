@@ -26,6 +26,12 @@ const useScroll =() =>{
         return;
       }
 
+      // Let vertically scrollable page content consume vertical wheel gestures.
+      const verticalPage = e.target instanceof Element
+        ? e.target.closest<HTMLElement>("[data-vertical-scroll]")
+        : null;
+      if (verticalPage && verticalPage.scrollHeight > verticalPage.clientHeight) return;
+
       // Check boundary positions
       const isAtStart = el.scrollLeft <= 0;
       const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
