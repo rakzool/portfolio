@@ -7,7 +7,6 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaStackOverflow } from "react-icons/fa6";
-import { TbCloverFilled } from "react-icons/tb";
 
 const HomePage = () => {
   const { containerRef } = useScrollContext();
@@ -35,14 +34,6 @@ const HomePage = () => {
           <a href="https://stackoverflow.com/users/13894163/rahul-kumar">
             <FaStackOverflow />
           </a>
-        </div>
-      </div>
-      <div>
-        <div className="mobile-message">
-          For best Experience please view this on Desktop
-          <span className="clover-icon content-highlight">
-            <TbCloverFilled />
-          </span>
         </div>
       </div>
       <div className="mobile-wave-bg">
