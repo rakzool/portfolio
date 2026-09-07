@@ -19,7 +19,7 @@ const HomePage = () => {
         </h3>
         <h1>Rahul Kumar</h1>
         <h2>
-          &nbsp;Full Stack Engineer |
+          Full Stack Engineer |
           <span className="content-highlight"> Frontend Specialist</span>
         </h2>
         <div className="icons-stack">
