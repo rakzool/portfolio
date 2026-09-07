@@ -26,6 +26,9 @@ const CrystalNav = ({ pages, activeIndex, containerRef }: TCrystalNavProps) => {
   return (
    <header className="portfolio-navbar-container">
       <nav className="portfolio-navbar" aria-label="Main Portfolio Navigation">
+        <button className="nav-brand" type="button" onClick={() => handleNavClick(0)} aria-label="Rahul Kumar — home">
+          <img src={`${import.meta.env.BASE_URL}logo.svg`} width="44" height="44" alt="~/r*" />
+        </button>
         {pages.map((page, idx) => (
           <button
             key={page.id}

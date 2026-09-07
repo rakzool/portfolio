@@ -150,7 +150,7 @@ const AboutPage = () => {
             >
               Download Resume
             </a>
-            <a href="#contact" className="about-cta secondary">
+            <a href="mailto:rahulmob.3607@gmail.com" className="about-cta secondary">
               Let’s Connect
             </a>
           </div>
